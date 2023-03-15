@@ -8,7 +8,9 @@ public class Main {
     private static final int processorLoad=1000000;
 
     public static void main(String args[]){
-
+        Model model = new Model();
+        View view = new View();
+        Controller controller = new Controller(model, view);
         Window win=new Window(noOfThreads);
 
         for(int i =0; i<noOfThreads; i++){
@@ -20,6 +22,8 @@ public class Main {
         View view = new View();
         Controller controller = new Controller();
 
+
+        controller.updateView();
 // register the view and controller as observers of the model
         model.addObserver(view);
         model.addObserver(controller);
